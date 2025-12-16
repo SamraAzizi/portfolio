@@ -3,7 +3,7 @@
   publish = "."
 
 [context.production.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"
 
 # Handle client-side routing
 [[redirects]]
@@ -26,4 +26,5 @@
 [[headers]]
   for = "/_next/*"
   [headers.values]
+
     Cache-Control = "public, max-age=31536000, immutable"
