@@ -1,28 +1,13 @@
 [build]
   command = "npm run build"
-  publish = ".next"  # ← FIXED: Next.js builds to .next/
+  publish = ".next"  # ← CRITICAL: Must be ".next" not "."
 
 [build.environment]
   NODE_VERSION = "20"
-
-# REMOVE THESE - Next.js handles routing internally
-# [[redirects]]
-#   from = "/*"
-#   to = "/index.html"
-#   status = 200
-# [[redirects]]
-#   from = "/:file.html"
-#   to = "/:file.html"
-#   status = 200
 
 # Cache static assets
 [[headers]]
   for = "/_next/static/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
-
-# Optional: If you have an assets folder
-[[headers]]
-  for = "/assets/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    
